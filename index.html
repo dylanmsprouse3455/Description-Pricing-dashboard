@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dylan | Web & Custom Tools</title>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --card:#ffffff;
+  --border:#d1d5db;
+  --text:#111111;
+  --muted:#555555;
+  --radius:10px;
+  --max:900px;
+
+  --cc-pink: rgba(246,183,210,.45);
+  --cc-purple: rgba(214,198,247,.45);
+  --cc-blue: rgba(185,221,255,.45);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:28px 16px 48px;
+}
+
+header{margin-bottom:24px}
+
+h1{
+  margin:0 0 6px;
+  font-size:32px;
+  font-weight:700;
+}
+
+.subtitle{
+  margin:0;
+  color:var(--muted);
+  max-width:700px;
+  line-height:1.5;
+}
+
+.card{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px;
+  margin-bottom:14px;
+  background:#fff;
+}
+
+/* subtle cotton candy highlight */
+.cotton-candy{
+  position:relative;
+  overflow:hidden;
+}
+
+.cotton-candy::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    135deg,
+    var(--cc-pink),
+    var(--cc-purple),
+    var(--cc-blue)
+  );
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .6s ease;
+}
+
+.cotton-candy.viewed::before{
+  opacity:.38;
+}
+
+.cotton-candy.viewed{
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.04),
+    0 0 28px rgba(214,198,247,.25);
+}
+
+.accordion-toggle{
+  width:100%;
+  background:none;
+  border:none;
+  padding:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  color:var(--text);
+}
+
+.accordion-icon{
+  font-size:20px;
+  transition:transform .15s ease;
+}
+
+.accordion-content{
+  display:none;
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+}
+
+.accordion-toggle[aria-expanded="true"] .accordion-icon{
+  transform:rotate(45deg);
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:8px 0;
+  border-bottom:1px solid #eee;
+}
+
+.row:last-child{border-bottom:none}
+
+.price{font-weight:600; white-space:nowrap}
+
+.note{margin-top:10px; font-size:14px}
+
+.contact-box{
+  display:grid;
+  gap:10px;
+  font-size:15px;
+}
+
+.contact-box a{
+  color:inherit;
+  text-decoration:underline;
+}
+
+.share-btn{
+  margin-top:12px;
+  padding:10px 14px;
+  border:1px solid var(--border);
+  background:#fff;
+  cursor:pointer;
+  border-radius:8px;
+  font-size:14px;
+}
+
+/* estimate form */
+.estimate-group{margin-top:18px}
+
+.estimate-select,
+.estimate-textarea{
+  width:100%;
+  padding:12px 14px;
+  font-size:16px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  margin-top:6px;
+}
+
+.estimate-textarea{resize:vertical}
+
+.estimate-checkbox{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:16px;
+  margin-bottom:10px;
+  cursor:pointer;
+}
+
+.estimate-checkbox input[type="checkbox"]{
+  width:20px;
+  height:20px;
+}
+
+footer{
+  margin-top:28px;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Websites & Custom Tools</h1>
+  <p class="subtitle">
+    I build straightforward websites and lightweight tools for people who want something that works,
+    stays understandable, and can be changed later.
+  </p>
+</header>
+
+<!-- EXPECTATIONS -->
+<div class="card cotton-candy">
+  <button class="accordion-toggle" aria-expanded="false">
+    <span>What You Can Expect</span>
+    <span class="accordion-icon">+</span>
+  </button>
+  <div class="accordion-content">
+    <p><strong>Honesty, Scope, and Corrections</strong></p>
+
+    <p>
+      Every project starts by clearly defining what you need and what success looks like.
+      Once the scope is understood, pricing is discussed and agreed on before any work begins.
+    </p>
+
+    <ul style="padding-left:18px; color:var(--muted);">
+      <li>If a feature doesn’t behave the way it was described, I fix it.</li>
+      <li>If something feels unclear once you see it in use, we talk it through and adjust.</li>
+      <li>If I make a mistake, I own it and correct it.</li>
+    </ul>
+
+    <p>
+      I won’t disappear after delivery, and I won’t charge to correct something that should have worked
+      based on the agreed scope.
+    </p>
+
+    <p>
+      Any new ideas or changes outside the original scope are always discussed first,
+      including time and cost, before work continues.
+    </p>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="card">
+  <button class="accordion-toggle" aria-expanded="false">
+    <span>Services</span>
+    <span class="accordion-icon">+</span>
+  </button>
+
+  <div class="accordion-content">
+
+    <div class="card" style="margin:0;">
+      <button class="accordion-toggle" aria-expanded="false">
+        <span>Websites</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-content">
+        <div class="row"><span>One-page business website</span><span class="price">$300 – $600</span></div>
+        <div class="row"><span>Multi-section website</span><span class="price">$600 – $1,200</span></div>
+        <div class="row"><span>Interactive features</span><span class="price">$100 – $400 / feature</span></div>
+        <p class="note">Mobile-friendly by default. Easy to expand or change later.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px;">
+      <button class="accordion-toggle" aria-expanded="false">
+        <span>Custom Tools</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-content">
+        <div class="row"><span>Calculators / estimators</span><span class="price">$250 – $600</span></div>
+        <div class="row"><span>Dashboards & internal tools</span><span class="price">$600 – $1,500+</span></div>
+        <p class="note">Browser-based. No subscriptions unless you explicitly want them.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- QUICK ESTIMATE -->
+<div class="card">
+  <button class="accordion-toggle" aria-expanded="false">
+    <span>Quick Estimate</span>
+    <span class="accordion-icon">+</span>
+  </button>
+
+  <div class="accordion-content">
+
+    <p>
+      Answer a few questions to get a rough estimate.
+      This isn’t a final quote. Scope and pricing are always confirmed together first.
+    </p>
+
+    <div class="estimate-group">
+      <strong>What are you looking for?</strong>
+      <select id="projectType" class="estimate-select">
+        <option value="">Select one</option>
+        <option value="onepage">One-page website</option>
+        <option value="multi">Multi-section website</option>
+        <option value="tool">Custom tool / dashboard</option>
+      </select>
+    </div>
+
+    <div class="estimate-group">
+      <strong>What features do you need?</strong>
+      <label class="estimate-checkbox"><input type="checkbox" value="forms"> Contact form</label>
+      <label class="estimate-checkbox"><input type="checkbox" value="calculator"> Calculator / estimator</label>
+      <label class="estimate-checkbox"><input type="checkbox" value="accordion"> Accordion / expandable sections</label>
+      <label class="estimate-checkbox"><input type="checkbox" value="other"> Something else</label>
+    </div>
+
+    <div class="estimate-group">
+      <strong>Timeline preference</strong>
+      <select id="timeline" class="estimate-select">
+        <option value="">Flexible</option>
+        <option value="soon">Soon (1–2 weeks)</option>
+        <option value="normal">Normal (2–4 weeks)</option>
+      </select>
+    </div>
+
+    <div class="estimate-group">
+      <strong>Additional details or requests</strong>
+      <textarea id="notes" rows="4" class="estimate-textarea"
+        placeholder="Anything specific you want, or something not listed above"></textarea>
+    </div>
+
+    <div class="note" id="estimateOutput">
+      Fill out the options above to see an estimate.
+    </div>
+
+    <button class="share-btn" onclick="generateQuoteEmail()">Generate quote email</button>
+
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="card">
+  <h2 style="margin-top:0;">Contact</h2>
+
+  <div class="contact-box">
+    <div><strong>Phone:</strong> <a href="tel:+14238232215">423-823-2215</a></div>
+    <div><strong>Email:</strong> <a href="mailto:Dylanm.sprouse3455@gmail.com">Dylanm.sprouse3455@gmail.com</a></div>
+    <div>You can text, call, or email. Expect a response within 24–48 hours.</div>
+  </div>
+
+  <button class="share-btn" onclick="sharePage()">Share this page</button>
+</div>
+
+<footer>
+  Prefer text or call? <a href="tel:+14238232215">423-823-2215</a>
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll('.accordion-toggle').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const card = btn.closest('.card');
+
+    btn.setAttribute('aria-expanded', !expanded);
+    btn.nextElementSibling.style.display = expanded ? 'none' : 'block';
+
+    if(card && card.classList.contains('cotton-candy') && !expanded){
+      card.classList.add('viewed');
+    }
+  });
+});
+
+function sharePage(){
+  if(navigator.share){
+    navigator.share({ title:document.title, url:window.location.href });
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert("Link copied to clipboard");
+  }
+}
+
+function calculateEstimate(){
+  let min=0, max=0;
+  const type=document.getElementById("projectType").value;
+  const features=document.querySelectorAll('input[type="checkbox"]:checked');
+  const timeline=document.getElementById("timeline").value;
+
+  if(type==="onepage"){min=300;max=600;}
+  if(type==="multi"){min=600;max=1200;}
+  if(type==="tool"){min=600;max=1500;}
+
+  features.forEach(f=>{ if(f.value!=="other"){min+=100;max+=400;}});
+  if(timeline==="soon"){min+=100;max+=200;}
+
+  if(min===0){
+    document.getElementById("estimateOutput").textContent="Fill out the options above to see an estimate.";
+    return;
+  }
+
+  document.getElementById("estimateOutput").innerHTML=
+    `<strong>Estimated range:</strong> $${min} – $${max}<br>
+     Final pricing is confirmed after discussing scope.`;
+}
+
+document.querySelectorAll("#projectType,#timeline,input[type='checkbox'],#notes")
+  .forEach(el=>el.addEventListener("change",calculateEstimate));
+
+function generateQuoteEmail(){
+  const type=document.getElementById("projectType").value||"Not specified";
+  const timeline=document.getElementById("timeline").value||"Flexible";
+  const notes=document.getElementById("notes").value||"None provided";
+  let features=[];
+  document.querySelectorAll('input[type="checkbox"]:checked')
+    .forEach(f=>features.push(f.parentElement.innerText.trim()));
+  const estimate=document.getElementById("estimateOutput").innerText;
+
+  const body=`Hi Dylan,
+
+I’d like to move forward with a project and wanted to share the details below.
+
+Project type:
+${type}
+
+Requested features:
+${features.length?features.join(", "):"None specified"}
+
+Timeline:
+${timeline}
+
+Additional notes:
+${notes}
+
+${estimate}
+
+Let me know next steps when you have a chance.
+`;
+
+  window.location.href=
+    `mailto:Dylanm.sprouse3455@gmail.com?subject=Website / Tool Quote Request&body=${encodeURIComponent(body)}`;
+}
+</script>
+
+</body>
+</html>
